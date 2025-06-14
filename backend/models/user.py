@@ -7,7 +7,7 @@ def user_exists(username):
     return db.users.find_one({"username": username}) is not None
 
 def create_default_users():
-    usernames = ["alice", "bob", "charlie", "dhanush", "emma"]
+    usernames = ["James", "sam", "rahul", "dhanush", "sanjay"]
     for name in usernames:
         if not user_exists(name):
             db.users.insert_one({"username": name})

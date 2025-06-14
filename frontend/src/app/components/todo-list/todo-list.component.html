@@ -1,0 +1,27 @@
+<h2>Todo List</h2>
+
+
+<div style="margin-bottom: 1rem;">
+  <label>Sort By:</label>
+  <select [(ngModel)]="sortBy" (change)="fetchTodos()">
+    <option value="created_at">Creation Date</option>
+    <option value="priority">Priority</option>
+  </select>
+
+  <label style="margin-left: 1rem;">Order:</label>
+  <select [(ngModel)]="order" (change)="fetchTodos()">
+    <option [value]="-1">Descending</option>
+    <option [value]="1">Ascending</option>
+  </select>
+</div>
+
+
+<div *ngFor="let todo of todos" (click)="viewDetails(todo)" style="border: 1px solid #ccc; padding: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">
+  <h4>{{ todo.title }}</h4>
+  <p>{{ todo.description }}</p>
+  <p>Priority: {{ todo.priority }}</p>
+  <p>Tags: {{ todo.tags.join(', ') }}</p>
+</div>
+
+
+<app-todo-detail *ngIf="selectedTodo" [todo]="selectedTodo"></app-todo-detail>

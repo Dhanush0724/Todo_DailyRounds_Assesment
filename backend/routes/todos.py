@@ -1,7 +1,8 @@
 from flask import Blueprint, request, jsonify
 from models.todo import *
 
-# Removed strict_slashes as it's not supported in your Flask version
+
+
 todos_bp = Blueprint('todos', __name__, url_prefix='/api/todos')
 
 @todos_bp.route("/", methods=["GET"])

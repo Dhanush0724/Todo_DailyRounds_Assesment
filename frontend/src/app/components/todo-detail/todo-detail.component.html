@@ -1,0 +1,13 @@
+<!-- todo-detail.component.html -->
+<h3>Todo Details</h3>
+<p><strong>{{ todo.title }}</strong></p>
+<p>{{ todo.description }}</p>
+<p>Priority: {{ todo.priority }}</p>
+<p>Tags: {{ todo.tags.join(', ') }}</p>
+<p>Notes:</p>
+<ul>
+  <li *ngFor="let note of todo.notes">{{ note }}</li>
+</ul>
+
+<input type="text" [(ngModel)]="note" placeholder="Add note..." />
+<button (click)="addNote()">Add Note</button>

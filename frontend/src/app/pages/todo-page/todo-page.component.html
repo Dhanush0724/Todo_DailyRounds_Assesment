@@ -1,0 +1,99 @@
+<h2>Todos</h2>
+<h3>{{ editingTodo ? 'Edit Todo' : 'Add Todo' }}</h3>
+
+<form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+  <label>Title:</label>
+  <input type="text" [(ngModel)]="todo.title" name="title" required />
+
+  <label>Description:</label>
+  <textarea [(ngModel)]="todo.description" name="description"></textarea>
+
+  <label>Priority:</label>
+  <select [(ngModel)]="todo.priority" name="priority">
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+
+  <label>Tags (comma separated):</label>
+  <input type="text" [(ngModel)]="tagsInput" name="tags" />
+
+  <label>Created By:</label>
+  <input type="text" [(ngModel)]="todo.created_by" name="created_by" />
+
+  <button type="submit">{{ editingTodo ? 'Update' : 'Add' }} Todo</button>
+  <button type="button" *ngIf="editingTodo" (click)="cancelEdit()">Cancel</button>
+</form>
+
+<!-- Filters -->
+<div>
+  <h4>Filters</h4>
+  <label>Priority:</label>
+  <select [(ngModel)]="filters.priority" (change)="fetchTodos()">
+    <option value="">All</option>
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+
+  <label>Created By:</label>
+  <input [(ngModel)]="filters.created_by" (input)="fetchTodos()" placeholder="e.g., alice" />
+
+  <label>Tags (comma separated):</label>
+<input
+  type="text"
+  [(ngModel)]="tagsInput"
+  name="tags"
+  (input)="onTagInputChange(tagsInput)"
+  autocomplete="off"
+/>
+
+<!-- Mention Suggestions -->
+<ul *ngIf="showUserSuggestions" class="mention-dropdown">
+  <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+    {{ '@' +user }}
+  </li>
+</ul>
+
+</div>
+
+<!-- Sorting -->
+<div>
+  <h4>Sort Options</h4>
+  <label>Sort By:</label>
+  <select [(ngModel)]="sortBy" (change)="fetchTodos()">
+    <option value="created_at">Creation Date</option>
+    <option value="priority">Priority</option>
+  </select>
+
+  <label>Order:</label>
+  <select [(ngModel)]="order" (change)="fetchTodos()">
+    <option [value]="-1">Descending</option>
+    <option [value]="1">Ascending</option>
+  </select>
+</div>
+
+<!-- Todo List -->
+<ul>
+  <li *ngFor="let todo of todos">
+    <strong>{{ todo.title }}</strong> - {{ todo.priority }} <br />
+    {{ todo.description }} <br />
+    Tags:
+    <span *ngFor="let tag of todo.tags">
+      <span [ngClass]="{ 'mention': tag.startsWith('@') }">{{ tag }}</span>
+      <span *ngIf="!todo.tags.includes(tag)">{{ tag }}</span>
+    </span>
+    <br />
+    Created By: {{ todo.created_by }} <br />
+    <button (click)="editTodo(todo)">Edit</button>
+
+    <button (click)="deleteTodo(todo._id!)">Delete</button>
+  </li>
+</ul>
+
+<!-- Pagination -->
+<div>
+  <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
+  <span>Page {{ page }}</span>
+  <button (click)="nextPage()">Next</button>
+</div>

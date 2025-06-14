@@ -9,10 +9,10 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# ✅ Allow CORS from Angular frontend
+
 CORS(app, resources={r"/api/*": {"origins": "http://localhost:4200"}}, supports_credentials=True)
 
-# Register routes
+
 app.register_blueprint(todos_bp, url_prefix="/api/todos")
 app.register_blueprint(users_bp, url_prefix="/api/users")
 
