@@ -49,17 +49,17 @@ Make sure both backend and frontend are running in separate terminal windows to 
 - Add tags and priorities to todos (High, Medium, Low)  
 - Tag/mention other users in todos using `@username`  
 -  Edit existing todos  
-- [x] Delete todos  
+- [Delete todos  
 
 ### 2. ✅ Todo Details
 - View todo details (tags, priority, notes, users)  
 - Add notes via a modal when clicking an icon next to the todo  
 
 ### 3. ✅ List View Features
-- [x] List all todos with basic information  
-- [x] Pagination implemented (with limit and skip)  
-- [x] Filter todos by tags, priority, or users  
-- [x] Sort todos by creation date or priority  
+- List all todos with basic information  
+- Pagination implemented (with limit and skip)  
+- Filter todos by tags, priority, or users  
+- Sort todos by creation date or priority  
 
 
 optinal features are not implemented 
