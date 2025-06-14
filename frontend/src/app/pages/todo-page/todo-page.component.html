@@ -24,7 +24,7 @@
       (input)="onTagInputChange(tagsInput)"
       autocomplete="off"
     />
-    <!-- Mention Suggestions -->
+ 
     <ul *ngIf="showUserSuggestions" class="mention-dropdown">
       <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
         {{ '@' + user }}
@@ -39,7 +39,7 @@
   <button type="button" *ngIf="editingTodo" (click)="cancelEdit()">Cancel</button>
 </form>
 
-<!-- Filters -->
+
 <div>
   <h4>Filters</h4>
   <label>Priority:</label>
@@ -57,7 +57,7 @@
   <input [(ngModel)]="filters.tag" (input)="fetchTodos()" placeholder="e.g., frontend" />
 </div>
 
-<!-- Sorting -->
+
 <div>
   <h4>Sort Options</h4>
   <label>Sort By:</label>
@@ -73,7 +73,7 @@
   </select>
 </div>
 
-<!-- Todo List -->
+
 <ul>
   <li *ngFor="let todo of todos">
     <strong>{{ todo.title }}</strong> - {{ todo.priority }} <br />
@@ -89,7 +89,7 @@
   </li>
 </ul>
 
-<!-- Pagination -->
+
 <div>
   <button (click)="prevPage()" [disabled]="page === 1">Previous</button>
   <span>Page {{ page }}</span>
