@@ -51,10 +51,11 @@ export class TodoPageComponent implements OnInit {
   }
 
   fetchUsers() {
-    this.http.get<string[]>('http://localhost:5000/api/users/').subscribe(users => {
-      this.usernames = users;
-    });
-  }
+  this.http.get<any[]>('http://localhost:5000/api/users/').subscribe(users => {
+    this.usernames = users.map(u => u.username); // Extract strings
+  });
+}
+
 
   fetchTodos() {
     const skip = (this.page - 1) * this.limit;

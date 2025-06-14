@@ -16,7 +16,21 @@
   </select>
 
   <label>Tags (comma separated):</label>
-  <input type="text" [(ngModel)]="tagsInput" name="tags" />
+  <div class="mention-container">
+    <input
+      type="text"
+      [(ngModel)]="tagsInput"
+      name="tags"
+      (input)="onTagInputChange(tagsInput)"
+      autocomplete="off"
+    />
+    <!-- Mention Suggestions -->
+    <ul *ngIf="showUserSuggestions" class="mention-dropdown">
+      <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+        {{ '@' + user }}
+      </li>
+    </ul>
+  </div>
 
   <label>Created By:</label>
   <input type="text" [(ngModel)]="todo.created_by" name="created_by" />
@@ -39,22 +53,8 @@
   <label>Created By:</label>
   <input [(ngModel)]="filters.created_by" (input)="fetchTodos()" placeholder="e.g., alice" />
 
-  <label>Tags (comma separated):</label>
-<input
-  type="text"
-  [(ngModel)]="tagsInput"
-  name="tags"
-  (input)="onTagInputChange(tagsInput)"
-  autocomplete="off"
-/>
-
-<!-- Mention Suggestions -->
-<ul *ngIf="showUserSuggestions" class="mention-dropdown">
-  <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
-    {{ '@' +user }}
-  </li>
-</ul>
-
+  <label>Tag:</label>
+  <input [(ngModel)]="filters.tag" (input)="fetchTodos()" placeholder="e.g., frontend" />
 </div>
 
 <!-- Sorting -->
@@ -81,12 +81,10 @@
     Tags:
     <span *ngFor="let tag of todo.tags">
       <span [ngClass]="{ 'mention': tag.startsWith('@') }">{{ tag }}</span>
-      <span *ngIf="!todo.tags.includes(tag)">{{ tag }}</span>
     </span>
     <br />
     Created By: {{ todo.created_by }} <br />
     <button (click)="editTodo(todo)">Edit</button>
-
     <button (click)="deleteTodo(todo._id!)">Delete</button>
   </li>
 </ul>
