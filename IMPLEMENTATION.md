@@ -1,9 +1,31 @@
+# 📝 Todo_DailyRounds_Assessment
+
+## 📌 Tech Stack Chosen
+
+### 🔹 Frontend
+- **Framework:** Angular
+- **HTTP Client:** Angular `HttpClientModule`
+
+### 🔹 Backend
+- **Framework:** Flask (Python)
+- **Database:** MongoDB
+
+---
+
+## 🚀 How to Run the Application
+
+### 📁 Clone the Repository
+
+```bash
+git clone https://github.com/Dhanush0724/Todo_DailyRounds_Assesment.git
+cd Todo_DailyRounds_Assesment
+
+
 ⚙️ Backend Setup
-bash
-Copy code
+
 cd backend
 python -m venv venv
-venv\Scripts\activate  # Windows
+source venv\Scripts\activate  # Windows
 # or for Linux/macOS:
 # source venv/bin/activate
 
@@ -12,8 +34,6 @@ python app.py
 ✅ Flask server will start running at: http://127.0.0.1:5000
 
 💻 Frontend Setup
-bash
-Copy code
 cd frontend
 npm install
 ng serve
@@ -22,17 +42,24 @@ ng serve
 ⚠️ Important:
 Make sure both backend and frontend are running in separate terminal windows to ensure proper communication.
 
-✅ Summary
-This project is a full-stack Todo List application using Angular, Flask, and MongoDB. It covers features like:
+## ✅ Implemented Features
 
-Adding, editing, and deleting todos
+### 1. ✅ Todo Management
+- Create new todos with titles and descriptions  
+- Add tags and priorities to todos (High, Medium, Low)  
+- Tag/mention other users in todos using `@username`  
+-  Edit existing todos  
+- [x] Delete todos  
 
-Priority and tagging system
+### 2. ✅ Todo Details
+- View todo details (tags, priority, notes, users)  
+- Add notes via a modal when clicking an icon next to the todo  
 
-User mentions with @username
+### 3. ✅ List View Features
+- [x] List all todos with basic information  
+- [x] Pagination implemented (with limit and skip)  
+- [x] Filter todos by tags, priority, or users  
+- [x] Sort todos by creation date or priority  
 
-Notes with modal support
 
-Filtering, sorting, pagination
-
-Additional features and enhancements can be built easily upon the existing modular structure.
+optinal features are not implemented 
