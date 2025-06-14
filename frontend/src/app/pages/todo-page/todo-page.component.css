@@ -1,5 +1,5 @@
 
-/* General page styles */
+
 :host {
   display: block;
   max-width: 700px;
@@ -12,7 +12,7 @@
 }
 
 
-/* Layout: left side todos, right side filter/sort/list view */
+
 .todo-page-layout {
   display: flex;
   gap: 32px;
@@ -43,13 +43,13 @@
     margin-left: 0;
   }
 }
-/* Headings */
+
 h2, h3, h4 {
   margin-top: 0;
   color: #2d3748;
 }
 
-/* Form styles */
+
 form {
   background: #fff;
   padding: 20px 18px 16px 18px;
@@ -174,7 +174,7 @@ form button[type="button"]:hover {
   background: #cbd5e1;
 }
 
-/* Mention input styles */
+
 .mention-container {
   position: relative;
 }
@@ -206,7 +206,7 @@ form button[type="button"]:hover {
   background: #f1f5f9;
 }
 
-/* Filters and sort sections */
+
 div > h4 {
   margin-bottom: 8px;
 }
@@ -227,7 +227,7 @@ div select {
   margin-bottom: 8px;
 }
 
-/* Todo list styles */
+
 ul {
   list-style: none;
   padding: 0;
@@ -275,7 +275,7 @@ ul li button:hover {
   font-weight: 500;
 }
 
-/* Pagination styles */
+
 div > button {
   padding: 6px 16px;
   margin: 0 8px 0 0;
