@@ -25,7 +25,7 @@ cd Todo_DailyRounds_Assesment
 
 cd backend
 python -m venv venv
-source venv\Scripts\activate  # Windows
+source venv/scripts/activate  # Windows
 # or for Linux/macOS:
 # source venv/bin/activate
 
@@ -62,4 +62,4 @@ Make sure both backend and frontend are running in separate terminal windows to 
 - Sort todos by creation date or priority  
 
 
-optinal features are not implemented 
+optional features are not implemented 
